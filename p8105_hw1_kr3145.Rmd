@@ -1,0 +1,8 @@
+---
+title: "P8105 Homework 1"
+author: "Kallan Roan kr3145"
+date: "2025-09-12"
+output: github_document
+---
+
+
