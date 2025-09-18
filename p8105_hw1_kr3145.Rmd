@@ -22,10 +22,12 @@ Description of dataset:
 
 The dataset has `r nrow(early_january_weather)` observations and `r ncol(early_january_weather)` variables. The variables in the dataset include `r ls(early_january_weather)`. 
 
-The data represents hourly meterological data from weather station in `r unique(early_january_weather$origin)` from `r month.name[early_january_weather$month[1]]` `r min(early_january_weather$day)` to `r month.name[early_january_weather$month[1]]` `r max(early_january_weather$day)`, `r unique(early_january_weather$year)`.
+pull(early_january_weather, origin)
 
-The average humidity is `r round(mean(early_january_weather$humid), digits = 2)` with a range of between `r min(early_january_weather$humid)` and `r max(early_january_weather$humid)`. The average 
-precipitation is `r mean(early_january_weather$precip)` inches with a range between `r min(early_january_weather$precip)` inches and `r max(early_january_weather$precip)` inches. The average dewpoint is `r round(mean(early_january_weather$dewp), digits = 2)` F with a range of between `r min(early_january_weather$dewp)` F and `r max(early_january_weather$dewp)` F. The mean temperature is `r round(mean(early_january_weather$temp), digits = 2)` F with a range between `r min(early_january_weather$temp)` F and `r max(early_january_weather$temp)` F.
+The data represents hourly meterological data from weather station in `r unique(pull(early_january_weather, origin))` from `r month.name[early_january_weather$month[1]]` `r min(pull(early_january_weather, day))` to `r month.name[early_january_weather$month[1]]` `r max(pull(early_january_weather, day))`, `r unique(pull(early_january_weather, year))`.
+
+The average humidity is `r round(mean(pull(early_january_weather, humid)), digits = 2)` with a range of between `r min(pull(early_january_weather, humid))` and `r max(pull(early_january_weather, humid))`. The average 
+precipitation is `r mean(pull(early_january_weather, precip))` inches with a range between `r min(pull(early_january_weather, precip))` inches and `r max(pull(early_january_weather, precip))` inches. The average dewpoint is `r round(mean(pull(early_january_weather, dewp)), digits = 2)` F with a range of between `r min(pull(early_january_weather, dewp))` F and `r max(pull(early_january_weather, dewp))` F. The mean temperature is `r round(mean(pull(early_january_weather, temp)), digits = 2)` F with a range between `r min(pull(early_january_weather, temp))` F and `r max(pull(early_january_weather, temp))` F.
 
 Scatterplot of temp (y) vs time_hour (x)
 ```{r}
@@ -49,8 +51,8 @@ prob2_df <-
   tibble(
     numeric_samp = rnorm(10),
     greater_0 = numeric_samp > 0,
-    vec_char = c("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"),
-    vec_factor = cut(numeric_samp, breaks = 3)
+    vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+    vec_factor = factor(c("a", "b", "c", "a", "b", "c", "a", "b", "c", "a"))
   )
 ```
 
