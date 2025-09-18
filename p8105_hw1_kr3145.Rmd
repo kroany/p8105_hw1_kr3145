@@ -5,4 +5,26 @@ date: "2025-09-12"
 output: github_document
 ---
 
+Load libraries
+```{r}
+library(moderndive)
+library(tidyverse)
+```
+
+# Problem 1
+
+Load dataset
+```{r}
+data("early_january_weather")
+```
+
+Description of dataset:
+
+The dataset has `r nrow(early_january_weather)` observations and `r ncol(early_january_weather)` variables. The variables in the dataset include `r ls(early_january_weather)`. 
+
+The data represents hourly meterological data from weather station in `r unique(early_january_weather$origin)` from `r month.name[early_january_weather$month[1]]` `r min(early_january_weather$day)` to `r month.name[early_january_weather$month[1]]` `r max(early_january_weather$day)`, `r unique(early_january_weather$year)`.
+
+The average humidity is `r round(mean(early_january_weather$humid), digits = 2)` with a range of between `r min(early_january_weather$humid)` and `r max(early_january_weather$humid)`. The average 
+precipitation is `r mean(early_january_weather$precip)` inches with a range between `r min(early_january_weather$precip)` inches and `r max(early_january_weather$precip)` inches. The average dewpoint is `r round(mean(early_january_weather$dewp), digits = 2)` F with a range of between `r min(early_january_weather$dewp)` F and `r max(early_january_weather$dewp)` F. The mean temperature is `r round(mean(early_january_weather$temp), digits = 2)` F with a range between `r min(early_january_weather$temp)` F and `r max(early_january_weather$temp)` F.
+
 
