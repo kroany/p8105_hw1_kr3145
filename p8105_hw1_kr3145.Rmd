@@ -20,10 +20,48 @@ data("early_january_weather")
 
 Description of dataset:
 
-The `early_january_weather` dataset represents hourly meteorological data from weather station in `r unique(pull(early_january_weather, origin))` from `r month.name[unique(pull(early_january_weather, month))]` `r min(pull(early_january_weather, day))`-`r max(pull(early_january_weather, day))`, `r unique(pull(early_january_weather, year))`. 
-The dataset has `r nrow(early_january_weather)` observations and `r ncol(early_january_weather)` variables. 
+The `early_january_weather` dataset represents hourly meteorological data from 
+weather station in `r unique(pull(early_january_weather, origin))` from 
+`r month.name[unique(pull(early_january_weather, month))]` 
+`r min(pull(early_january_weather, day))`-
+`r max(pull(early_january_weather, day))`, 
+`r unique(pull(early_january_weather, year))`. The dataset has 
+`r nrow(early_january_weather)` observations and `r ncol(early_january_weather)`
+variables. 
 
-The variables include `r ls(early_january_weather)`. Variables `year`, `month`, `day`, and `hour` represent the time of recording. Variable `time_hour` represents the date and hour of the recording as a POSIXct date.  Variable `humid` represents the relative humidity, with an average of `r round(mean(pull(early_january_weather, humid)), digits = 2)` (Range: `r min(pull(early_january_weather, humid))`-`r max(pull(early_january_weather, humid))`). Variable `wind_dir` represents wind direction in degrees, with an average of  `r round(mean(pull(early_january_weather, wind_dir), na.rm = TRUE), digits = 2)` degrees (Range: `r min(pull(early_january_weather, wind_dir), na.rm = TRUE)`-`r max(pull(early_january_weather, wind_dir), na.rm = TRUE)` degrees). `wind_speed` and `wind_gust` represents the wind speed and gust speed in mph, with an average of `r round(mean(pull(early_january_weather, wind_speed), digits = 2))` mph (Range: `r min(pull(early_january_weather, wind_speed))`-`r round(max(pull(early_january_weather, wind_speed)), digits = 2)` mph) and `r round(mean(pull(early_january_weather, wind_gust), na.rm = TRUE), digits = 2)` mph (Range: `r round(min(pull(early_january_weather, wind_gust), na.rm = TRUE))`-`r round(max(pull(early_january_weather, wind_gust), na.rm = TRUE))` mph) respectively. Variable `precip` represents precipitation in inches, with an average of `r mean(pull(early_january_weather, precip))` inches (Range: `r min(pull(early_january_weather, precip))`-`r max(pull(early_january_weather, precip))` inches). Variable `pressure` represents sea level pressure in millibars, with an average of `r round(mean(pull(early_january_weather, pressure), na.rm = TRUE), digits = 2)` millibars (Range: `r min(pull(early_january_weather, pressure), na.rm = TRUE)`-`r max(pull(early_january_weather, pressure), na.rm = TRUE)` millibars). Variable `visib` represents visibility in miles, with an average of `r round(mean(pull(early_january_weather, visib)), digits = 2)` miles (Range: `r min(pull(early_january_weather, visib))`-`r max(pull(early_january_weather, visib))` miles). Variable `dewp` represents the dewpoint in F, with an average of `r round(mean(pull(early_january_weather, dewp)), digits = 2)` F (Range: `r min(pull(early_january_weather, dewp))`-`r max(pull(early_january_weather, dewp))` F). Variable `temp` represents the temperature in F. The mean temperature is `r round(mean(pull(early_january_weather, temp)), digits = 2)` F  (Range: `r min(pull(early_january_weather, temp))`-`r max(pull(early_january_weather, temp))` F).
+The variables include `r ls(early_january_weather)`. Variables `year`, `month`, 
+`day`, and `hour` represent the time of recording. Variable `time_hour` 
+represents the date and hour of the recording as a POSIXct date.  Variable 
+`humid` represents the relative humidity, with an average of 
+`r round(mean(pull(early_january_weather, humid)), digits = 2)` 
+(Range: `r min(pull(early_january_weather, humid))`-
+`r max(pull(early_january_weather, humid))`). Variable `wind_dir` represents 
+wind direction in degrees, with an average of
+`r round(mean(pull(early_january_weather, wind_dir), na.rm = TRUE), digits = 2)` 
+degrees (Range: `r min(pull(early_january_weather, wind_dir), na.rm = TRUE)`-
+`r max(pull(early_january_weather, wind_dir), na.rm = TRUE)` degrees). 
+`wind_speed` and `wind_gust` represents the wind speed and gust speed in mph, 
+with an average of `r round(mean(pull(early_january_weather, wind_speed), digits = 2))` 
+mph (Range: `r min(pull(early_january_weather, wind_speed))`-
+`r round(max(pull(early_january_weather, wind_speed)), digits = 2)` mph) and 
+`r round(mean(pull(early_january_weather, wind_gust), na.rm = TRUE), digits = 2)` 
+mph (Range: `r round(min(pull(early_january_weather, wind_gust), na.rm = TRUE))`-`r round(max(pull(early_january_weather, wind_gust), na.rm = TRUE))` mph) respectively. 
+Variable `precip` represents precipitation in inches, with an average of 
+`r mean(pull(early_january_weather, precip))` inches (Range: 
+`r min(pull(early_january_weather, precip))`-`r max(pull(early_january_weather, precip))`
+inches). Variable `pressure` represents sea level pressure in millibars, with an 
+average of `r round(mean(pull(early_january_weather, pressure), na.rm = TRUE), digits = 2)`
+millibars (Range: `r min(pull(early_january_weather, pressure), na.rm = TRUE)`-
+`r max(pull(early_january_weather, pressure), na.rm = TRUE)` millibars). Variable 
+`visib` represents visibility in miles, with an average of 
+`r round(mean(pull(early_january_weather, visib)), digits = 2)` miles (Range: 
+`r min(pull(early_january_weather, visib))`-`r max(pull(early_january_weather, visib))` 
+miles). Variable `dewp` represents the dewpoint in F, with an average of 
+`r round(mean(pull(early_january_weather, dewp)), digits = 2)` F (Range: 
+`r min(pull(early_january_weather, dewp))`-`r max(pull(early_january_weather, dewp))` F).
+Variable `temp` represents the temperature in F. The mean temperature is 
+`r round(mean(pull(early_january_weather, temp)), digits = 2)` F  (Range: 
+`r min(pull(early_january_weather, temp))`-`r max(pull(early_january_weather, temp))` F).
 
 Scatterplot of temp (y) vs time_hour (x), with color points indicating humid
 ```{r}
@@ -31,8 +69,11 @@ ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) +
   geom_point()
 ```
 
-Although the temperature fluctuates within each day, on average, as the date and time increases, the temperature increases. The temperature decreased dramatically after January 14. 
-While the humidity started out low on January 1st, the humidity slightly increased starting January 6 on average. However, there is a huge increase in both temperature and humidity starting January 12. 
+Although the temperature fluctuates within each day, on average, as the date and time
+increases, the temperature increases. The temperature decreased dramatically after January 14.
+While the humidity started out low on January 1st, the humidity slightly increased starting
+January 6 on average. However, there is a huge increase in both temperature and humidity
+starting January 12. 
 
 Save scatterplot to project directory
 ```{r}
@@ -72,7 +113,9 @@ Mean of vec_factor
 mean(pull(prob2_df, vec_factor))
 ```
 
-The random sample of size 10 from a standard normal distribution and the logical vector produced a mean. The character vector and factor vector did not produce a mean. It resulted in NA, and a warning message appeared.
+The random sample of size 10 from a standard normal distribution and the logical vector
+produced a mean. The character vector and factor vector did not produce a mean. 
+It resulted in NA, and a warning message appeared.
 
 Convert greater_0, vec_char, and vec_factor to numeric vectors
 ```{r results = "hide"}
@@ -81,11 +124,23 @@ as.numeric(pull(prob2_df, vec_char))
 as.numeric(pull(prob2_df, vec_factor))
 ```
 
-as.numeric function attempts to convert previous logical, character, and factor vectors into numeric vectors. 
+as.numeric function attempts to convert previous logical, character, and factor vectors into
+numeric vectors. 
 
-When as.numeric function is applied to the logical vector, it is able to successfully convert the values in the vector into numeric values. This occurs because the values in the logical vector (0 and 1) are internally stored as numbers that represent TRUE and FALSE. This helps explain what happens when calculating the mean, because it will calculate the mean based on the 0's and 1's in the vector. 
+When as.numeric function is applied to the logical vector, it is able to successfully convert
+the values in the vector into numeric values. This occurs because the values in the logical
+vector (0 and 1) are internally stored as numbers that represent TRUE and FALSE. This helps
+explain what happens when calculating the mean, because it will calculate the mean based on the
+0's and 1's in the vector. 
 
-When as.numeric function is applied to this character vector, an error message will show. This is because the values in the vector hold non-numeric characters, so the conversion is not successful. This does explain what happens when I try to take the mean. Since you cannot take a mean of characters, a warning message will appear and will result in NA. 
+When as.numeric function is applied to this character vector, an error message will show. This
+is because the values in the vector hold non-numeric characters, so the conversion is not
+successful. This does explain what happens when I try to take the mean. Since you cannot take a
+mean of characters, a warning message will appear and will result in NA. 
 
-When as.numeric function is applied to the factor vector, it is able to successfully convert the values in the vector into a numeric values. This occurs because the underlying values in the factor vector (1, 2, and 3) are numbers that represent factor levels. However, these values don't hold any meaning. Therefore, calculating the mean of this variable does not make sense, even if the conversion and calculation is successful.
+When as.numeric function is applied to the factor vector, it is able to successfully convert
+the values in the vector into a numeric values. This occurs because the underlying values in
+the factor vector (1, 2, and 3) are numbers that represent factor levels. However, these values
+don't hold any meaning. Therefore, calculating the mean of this variable does not make sense,
+even if the conversion and calculation is successful.
 
