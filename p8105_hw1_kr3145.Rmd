@@ -72,24 +72,22 @@ Mean of vec_factor
 mean(pull(prob2_df, vec_factor))
 ```
 
-The random sample of size 10 from a standard normal distribution produced a mean. The logical vector was also able to produce a mean, but the mean doesn't make sense because of the bolean values (TRUE and FALSE). The character vector and factor vector was not able to produce a value for a mean.
+The random sample of size 10 from a standard normal distribution produced a mean. The logical vector was also able to produce a mean, but the mean was calculated using values 0 and 1 that represents bolean values (TRUE and FALSE). The character vector and factor vector did not produce a mean, resulted in NA, and a warning message appeared.
 
-Convert greater_0, vec_char, and vec_factor to numeric
+Convert greater_0, vec_char, and vec_factor to numeric vectors
 ```{r results = "hide"}
 as.numeric(pull(prob2_df, greater_0))
 as.numeric(pull(prob2_df, vec_char))
 as.numeric(pull(prob2_df, vec_factor))
 ```
 
-as.numeric function converts previous logical, character, and factor variables into numeric variables. 
-When as.numeric function is applied to the logical vector, it is able to successfully convert the values in the vector into a numeric values. This occurs because the values in the logical vector (0 and 1) are numbers that represent TRUE and FALSE. However, the values of 0 and 1 represent boolean values and don't hold additional meaning, so it does not make sense to take the mean of the logical vector, even if it's converted to a numeric vector and error message doesn't show when calculating the mean.
+as.numeric function attempts to convert previous logical, character, and factor variables into numeric variables. 
 
-When as.numeric function is applied to the character vector, an error message will show. This is because the values in the vector resemble a character, not a number. You cannot assign numbers to characters. This does make sense when I am trying to take the mean, since you cannot take a mean that are not numbers. 
+When as.numeric function is applied to the logical vector, it is able to successfully convert the values in the vector into a numeric values. This occurs because the values in the logical vector (0 and 1) are internally stored as numbers that represent TRUE and FALSE. This helps explain what happens when calculating the mean, because it will calculate the mean based on the 0's and 1's in the vector. 
 
-When as.numeric function is applied to the factor vector, it is able to successfully convert the values in the vector into a numeric values. This occurs because the values in the factor vector (1, 2, and 3) are actual numbers. However, since the represent the factor levels within the vector, they do not hold additional meaning. Therefore, calculating the mean of this variable does not make sense, even if is converted to a numeric vector and an error message doesn't show when calculating the mean.
+When as.numeric function is applied to this character vector, an error message will show. This is because the values in the vector hold non-numeric characters, so the conversion is not successful. This does explain what happens when I try to take the mean. Since you cannot take a mean of characters, a warning message will appear and will result in NA. 
 
-
-?????
+When as.numeric function is applied to the factor vector, it is able to successfully convert the values in the vector into a numeric values. This occurs because the underlying values in the factor vector (1, 2, and 3) are actual numbers that represent factor levels. However, these values don't hold any meaning. Therefore, calculating the mean of this variable does not make sense, even if the conversion and calculation is successful.
 
 
 
