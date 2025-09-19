@@ -45,7 +45,8 @@ with an average of `r round(mean(pull(early_january_weather, wind_speed), digits
 mph (Range: `r min(pull(early_january_weather, wind_speed))`-
 `r round(max(pull(early_january_weather, wind_speed)), digits = 2)` mph) and 
 `r round(mean(pull(early_january_weather, wind_gust), na.rm = TRUE), digits = 2)` 
-mph (Range: `r round(min(pull(early_january_weather, wind_gust), na.rm = TRUE))`-`r round(max(pull(early_january_weather, wind_gust), na.rm = TRUE))` mph) respectively. 
+mph (Range: `r round(min(pull(early_january_weather, wind_gust), na.rm = TRUE))`-
+`r round(max(pull(early_january_weather, wind_gust), na.rm = TRUE))` mph) respectively. 
 Variable `precip` represents precipitation in inches, with an average of 
 `r mean(pull(early_january_weather, precip))` inches (Range: 
 `r min(pull(early_january_weather, precip))`-`r max(pull(early_january_weather, precip))`
